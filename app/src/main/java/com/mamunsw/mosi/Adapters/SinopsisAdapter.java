@@ -19,9 +19,9 @@ public class SinopsisAdapter extends RecyclerView.Adapter<SinopsisViewHolder>{
     private Context context;
     private List<Result> resultSinopsisList;
 
-    public SinopsisAdapter(Context context, List<Result> resultPahlawanList){
+    public SinopsisAdapter(Context context, List<Result> resultSinopsisList){
         this.context = context;
-        this.resultSinopsisList = resultPahlawanList;
+        this.resultSinopsisList = resultSinopsisList;
     }
     @NonNull
     @Override
@@ -31,16 +31,16 @@ public class SinopsisAdapter extends RecyclerView.Adapter<SinopsisViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SinopsisViewHolder pahlawanViewHolder, int i) {
-        Result resultPahlawan = resultSinopsisList.get(i);
-        pahlawanViewHolder.txtJudul.setText(((Result) resultPahlawan).getJudulfilm());
-        pahlawanViewHolder.txtGenre.setText(((Result) resultPahlawan).getJudulfilm());
-        pahlawanViewHolder.txtDurasi.setText(((Result) resultPahlawan).getJudulfilm());
+    public void onBindViewHolder(@NonNull SinopsisViewHolder sinopsisViewHolder, int i) {
+        Result resultSinopsis = resultSinopsisList.get(i);
+        sinopsisViewHolder.txtJudul.setText(((Result) resultSinopsis).getJudulfilm());
+        sinopsisViewHolder.txtGenre.setText(((Result) resultSinopsis).getGenrefilm());
+        sinopsisViewHolder.txtDurasi.setText(((Result) resultSinopsis).getDurasifilm());
         Glide.with(context)
-                .load(""+resultPahlawan.getGambarfilm())
+                .load(""+resultSinopsis.getGambarfilm())
                 .apply(new RequestOptions().override(100,100).centerCrop())
-                .into(pahlawanViewHolder.imgSinopsis);
-        pahlawanViewHolder.setItem(resultSinopsisList);
+                .into(sinopsisViewHolder.imgSinopsis);
+        sinopsisViewHolder.setItem(resultSinopsisList);
     }
 
     @Override
