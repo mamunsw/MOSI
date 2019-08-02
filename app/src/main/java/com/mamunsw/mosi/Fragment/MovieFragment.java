@@ -52,8 +52,8 @@ public class MovieFragment extends Fragment {
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity().getApplicationContext());
                 recyclerView.setLayoutManager(linearLayoutManager);
                 recyclerView.setHasFixedSize(true);
-                SinopsisAdapter resepMasakanAdapter=new SinopsisAdapter(getActivity().getApplicationContext(),response.body().getResults());
-                recyclerView.setAdapter(resepMasakanAdapter);
+                SinopsisAdapter sinopsisAdapter=new SinopsisAdapter(getActivity().getApplicationContext(),response.body().getResults());
+                recyclerView.setAdapter(sinopsisAdapter);
             }
 
             @Override
